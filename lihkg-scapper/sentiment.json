@@ -1,0 +1,112 @@
+[
+    {
+        "id": "2833531",
+        "score": 0.37026568682871686,
+        "is_positive": true
+    },
+    {
+        "id": "2828562",
+        "score": 0.8422939068100359,
+        "is_positive": true
+    },
+    {
+        "id": "2819930",
+        "score": 0.33048128342245997,
+        "is_positive": true
+    },
+    {
+        "id": "2816908",
+        "score": 0.8377216550241806,
+        "is_positive": true
+    },
+    {
+        "id": "2799292",
+        "score": -0.5109254498714653,
+        "is_positive": false
+    },
+    {
+        "id": "2794739",
+        "score": 0.8712446351931331,
+        "is_positive": true
+    },
+    {
+        "id": "2791784",
+        "score": 0.8938906752411575,
+        "is_positive": true
+    },
+    {
+        "id": "2791390",
+        "score": 0.8631178707224334,
+        "is_positive": true
+    },
+    {
+        "id": "2779359",
+        "score": 0.7349397590361446,
+        "is_positive": true
+    },
+    {
+        "id": "2775104",
+        "score": 0.6227272727272728,
+        "is_positive": true
+    },
+    {
+        "id": "2769111",
+        "score": 0.6666666666666667,
+        "is_positive": true
+    },
+    {
+        "id": "2752267",
+        "score": 0.8642297650130548,
+        "is_positive": true
+    },
+    {
+        "id": "2750101",
+        "score": 0.9061277705345503,
+        "is_positive": true
+    },
+    {
+        "id": "2747750",
+        "score": 0.6243654822335025,
+        "is_positive": true
+    },
+    {
+        "id": "2741559",
+        "score": 0.9248826291079812,
+        "is_positive": true
+    },
+    {
+        "id": "2721214",
+        "score": -0.53938185443669,
+        "is_positive": false
+    },
+    {
+        "id": "2707969",
+        "score": -0.13296903460837883,
+        "is_positive": false
+    },
+    {
+        "id": "2707806",
+        "score": 0.9548798430603236,
+        "is_positive": true
+    },
+    {
+        "id": "2699001",
+        "score": 0.9650302622730329,
+        "is_positive": true
+    },
+    {
+        "id": "2682474",
+        "score": 0.7656765676567656,
+        "is_positive": true
+    },
+    {
+        "id": "2671912",
+        "score": 0.8097982708933718,
+        "is_positive": true
+    },
+    {
+        "id": "2668436",
+        "score": 0.8392124692370795,
+        "is_positive": true
+    }
+]
