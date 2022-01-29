@@ -17,7 +17,7 @@ from util.update_news import updateNewsByObjectList
 
 ### Init firebase ###
 cred = credentials.Certificate('./serviceAccount.json')
-firebase_admin.initialize_app(cred)
+firebase_admin.initialize_app(cred, options = { "httpTimeout": 660 })
 
 
 ### Get data source ###
@@ -31,6 +31,7 @@ def udpateReutersWorld():
     print("Update firebase - Reuters World ...")
     updateNewsByObjectList(db, reutersWorld)
     print("Update firebase - Reuters World done")
+    db.close()
 
 
 def udpateReutersBusiness():
@@ -42,6 +43,7 @@ def udpateReutersBusiness():
     print("Update firebase - Reuters Business ...")
     updateNewsByObjectList(db, reutersBusiness)
     print("Update firebase - Reuters Business done")
+    db.close()
 
 
 def updateReuterMarkets():
@@ -53,6 +55,7 @@ def updateReuterMarkets():
     print("Update firebase - Reuters Markets ...")
     updateNewsByObjectList(db, reutersMarkets)
     print("Update firebase - Reuters Markets done")
+    db.close()
 
 
 def updateReuterBreakingViews():
@@ -64,6 +67,7 @@ def updateReuterBreakingViews():
     print("Update firebase - Reuters BreakingViews ...")
     updateNewsByObjectList(db, reutersBreakingViews)
     print("Update firebase - Reuters BreakingViews done")
+    db.close()
 
 # print("Get JPMorgan News data ...")
 # jpmorganNews =  data_source.JPMorgan.news.getNewsData()
@@ -83,7 +87,7 @@ while True:
     for t in threads:
         t.join()
     
-    print("Sleep for 30 minutes ...")
-    sleep(1800)
+    print("Sleep for 10 minutes ...")
+    sleep(600)
 
 
