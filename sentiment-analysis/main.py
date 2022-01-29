@@ -41,6 +41,7 @@ def nlp_process(data):
     try:
         res = []
         for news in data:
+            # print(news)
             try:
                 # news = news.to_dict()
                 dict = {}
