@@ -12,6 +12,7 @@ def toOutput(input):
     negative = analyzer['neg']
     score = positive - negative
     input['sentiment_score'] = score
+    input['is_positive'] = score > 0
     
     # summary #
     summary = getExtractiveSummarization(input['content'])
