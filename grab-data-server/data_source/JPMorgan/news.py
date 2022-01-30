@@ -65,3 +65,9 @@ def getNewsData():
     chrome.close()
 
     return results
+
+
+if __name__ == "__main__":
+    getNewsData()
+
+    

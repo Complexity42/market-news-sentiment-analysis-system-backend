@@ -10,7 +10,9 @@ import data_source.Reuters.business
 import data_source.Reuters.markets
 import data_source.Reuters.breakingviews
 
-# import data_source.JPMorgan.news
+import data_source.JPMorgan.news
+
+import data_source.RSS.rss
 
 from util.update_news import updateNewsByObjectList
 
@@ -69,9 +71,27 @@ def updateReuterBreakingViews():
     print("Update firebase - Reuters BreakingViews done")
     db.close()
 
-# print("Get JPMorgan News data ...")
-# jpmorganNews =  data_source.JPMorgan.news.getNewsData()
-# print("Get JPMorgan News data done")
+def updateJPMorgan():
+    print("Get JPMorgan News data ...")
+    jpmorganNews =  data_source.JPMorgan.news.getNewsData()
+    print("Get JPMorgan News data done")
+
+    db = firestore.client()
+    print("Update firebase - JPMorgan News ...")
+    updateNewsByObjectList(db, jpmorganNews)
+    print("Update firebase - JPMorgan News done")
+    db.close()
+
+def updateRSS():
+    print("Get RSS data ...")
+    rssData = data_source.RSS.rss.getRSSData()
+    print("Get RSS data done")
+
+    db = firestore.client()
+    print("Update firebase - RSS data ...")
+    updateNewsByObjectList(db, rssData)
+    print("Update firebase - RSS data done")
+    db.close()
 
 
 while True:
@@ -80,6 +100,8 @@ while True:
         threading.Thread(target=udpateReutersBusiness),
         threading.Thread(target=updateReuterMarkets),
         threading.Thread(target=updateReuterBreakingViews),
+        threading.Thread(target=updateJPMorgan),
+        threading.Thread(target=updateRSS),
     ]
     for t in threads:
         t.start()
