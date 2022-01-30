@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
+from classification import classify_topic
 class FireBaseClass:
 
     def __init__(self):
@@ -9,7 +9,6 @@ class FireBaseClass:
         self.setup()
     
     def setup(self):
-        # Use a service account
         cred = credentials.Certificate('secret.json')
         firebase_admin.initialize_app(cred)
 
@@ -27,36 +26,23 @@ class FireBaseClass:
             doc['id'] = id
             res.append(doc)
 
-        # print(res)
         return res
 
     def save_result(self, id, score):
-        # doc_ref = self.db.collection(u'users').document(u'alovelace')
-        # doc_ref.set({
-        #     u'first': u'Ada',
-        #     u'last': u'Lovelace',
-        #     u'born': 1815
-        # })
-
-        # doc_ref = self.db.collection(u'users').document(u'aturing')
-        # doc_ref.set({
-        #     u'first': u'Alan',
-        #     u'middle': u'Mathison',
-        #     u'last': u'Turing',
-        #     u'born': 1912
-        # })
-        # print(news)
-        col_ref = self.db.collection('Sentiment_Analysis_Result').document(id)
-        col_ref.set(
+        doc_ref = self.db.collection('Sentiment_Analysis_Result').document(id)
+        doc_ref.set(
             {
-            #   sentiment_analysis_result
-            # - method_name
-            # - news_id
-            # - score
-            # - created_at
-            # - updated_at
                 'news_id' : id,
                 'score' : score,
                 'is_positive' : score>0,
             }
         )
+
+    def update_classification(self):
+        col_ref = self.db.collection('News')
+        for doc_ref in col_ref.get():
+            id = doc_ref.id
+            doc = doc_ref.to_dict()
+            if len(doc['keywords']) == 0:
+                doc['keywords'] = [classify_topic(doc['content'])]
+            # col_ref.document(id).set(doc)

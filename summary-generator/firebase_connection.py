@@ -68,4 +68,6 @@ class FireBaseClass:
             id = doc_ref.id
             doc = doc_ref.to_dict()
             doc['summary'] = getExtractiveSummarization(doc['content'])
+            if len(doc['summary']) == 0:
+                doc['summary'] = doc['title']
             col_ref.document(id).set(doc)
