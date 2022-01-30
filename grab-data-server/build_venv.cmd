@@ -9,5 +9,6 @@ pip install selenium
 pip install BeautifulSoup4
 pip install firebase-admin
 pip install feedparser
+pip install nltk
 
 pip freeze > requirement.txt
